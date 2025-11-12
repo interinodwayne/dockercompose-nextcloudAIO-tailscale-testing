@@ -7,9 +7,11 @@ services:
     environment:
       - TS_AUTHKEY=tskey-************************* # authkey here NOTE: I am not sure if the authkey needs to be reusable or one-time use but it worked for Immich with reusable
       - TS_STATE_DIR=/var/lib/tailscale
+      - TS_SERVE_CONFIG=/config/nextcloud.json
       - TS_USERSPACE=true
     volumes:
       - /mnt/appdata/nextcloud/tailscale:/var/lib/tailscale
+      - /mnt/nextcloud:/config
     cap_add:
       - NET_ADMIN
       - SYS_MODULE
